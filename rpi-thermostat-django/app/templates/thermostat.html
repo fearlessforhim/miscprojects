@@ -1,0 +1,277 @@
+{% load static %}
+<html>
+<head>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="{% static 'temperature.js' %}"></script>
+	<script type="text/javascript" src="{% static 'moment.js' %}"></script>
+<!--	<script type="text/javascript" src="{% static 'schedule.js' %}"></script>
+	<script type="text/javascript" src="{% static 'history.js' %}"></script>-->
+	<link rel="stylesheet" type="text/css" href="{% static 'temperature.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'structure.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'history.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'font-awesome.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'schedule.css' %}"/>
+	<meta name="viewport" content="user-scalable=0">
+</head>
+<body>
+  <div class="page-controls">
+    <div class="r">
+      <div class="c4">
+	<div class="header-btn thermostat-page-btn">
+	  <div>Thermostat</div>
+	</div>
+      </div>
+      <div class="c4">
+	<div class="header-btn schedule-page-btn">
+	  <div>Schedule</div>
+	</div>
+      </div>
+      <div class="c3">
+	<div class="header-btn history-page-btn">
+	  <div>History</div>
+	</div>
+      </div>
+      <div class="c1">
+	<div class="header-btn settings-page-btn" data-settings>
+	  <div class="fa fa-square-o"></div>
+	</div>
+      </div>
+    </div>
+  </div>
+  <div class="data-control">
+    <div class="temperature-control">
+      <div class="r">
+	<div class="temperature-display">
+	  <div class="c6 mc12">
+	    <div class="temperature-display-wrapper">
+	      <div class="temporary-notice">Temporary</div>
+	      <div class="running-notice">Running</div>
+	      <div class="hold-notice">Hold</div>
+	      <div class='wrapper'>
+		<div class="touch-box box-1" id='touch-box' data-drag="true" data-rotate="true"  data-resize="true">
+		  <div class='grabber'></div>
+		</div>
+	      </div>
+	      <div class='wrapper-back'></div>
+	      <div class='wrapper-front'>
+		<div class="current">
+		  <span class="temperature">70</span><span class="degree">&deg;</span>
+		</div>
+		<div class='target'>
+		  <span class="temperature">70</span><span class="degree">&deg;</span>
+		</div>
+	      </div>
+	    </div>
+	    <div class="control-center">
+	      <div class="r">
+		<div class="c6">
+		  <div class="heat-control"><div class="control">Heat is<span class="on">ON</span><span class="off">OFF</span></div></div>
+		</div>
+		<div class="c6">
+		  <div class="fan-control"><div class="control">Fan is<span class="on">ON</span><span class="off">OFF</span></div></div>
+		</div>
+	      </div>
+	      <div class="r">
+		<div class="c6">
+		  <div class="run-schedule"><div class="control">Run Schedule</div></div>
+		</div>
+		<div class="c6">
+		  <div class="hold-temperature"><div class="control">Hold Temperature</div></div>
+		</div>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="c6 mc12">
+	    <div class="forecast-display">
+	      <div class="forecast-header">
+		Forecast
+		<span class="time"></span>
+	      </div>
+	      <div class="forecast-temp">
+		<div class="r">
+		  <div class="c5">
+		    <div class="forecast-temp-current-title">
+		      Current
+		    </div>
+		    <div class="forecast-temp-current-value" data-forecast-current>
+		      <span>18</span> &deg;F
+		    </div>
+		  </div>
+		  <div class="c7">
+		    <div class="forecast-temp-highlow-title">
+		      High / Low
+		    </div>
+		    <div class="forecast-temp-highlow-value" data-forecast-highlow>
+		      <span class="high" data-high>28</span> &deg;F / <span class="low" data-low>18</span> &deg;F
+		    </div>
+		  </div>
+		</div>
+		<div class="r">
+		  <div class="c5">
+		    <div class="forecast-temp-current-with-wind-title">
+		      Current With Wind
+		    </div>
+		    <div class="forecast-temp-current-value" data-forecast-current-with-wind>
+		      <span>18</span> &deg;F
+		    </div>
+		  </div>
+		  <div class="c7">
+		    <div class="forecast-temp-conditions-title">
+		      Conditions
+		    </div>
+		    <div class="forecast-temp-condition-value" data-forecast-conditions>
+		      <div class="r">
+			<div class="c6">
+			  <div class="condition">
+			  </div>
+			</div>
+			<div class="c6">
+			  <div class="condition-text" data-condition-text>
+			  </div>
+			</div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<div class="r">
+		  <div class="c5">
+		    <div class="humidity-title">
+		      Humidity
+		    </div>
+		    <div class="humidity-value">
+		      <span data-humidity>0</span>%
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div class="energy-save">
+		<div class="r">
+		  <div class="c9">
+		    <div data-energy-save-mode class="data-energy-save-text">
+		      Start Energy Save
+		    </div>
+		  </div>
+		  <div class="c3">
+		    <div data-energy-save-select class="data-energy-save-select">
+		      <div class="energy-save-up"><i class="fa fa-caret-up"></i></div>
+		      <div class="energy-save-minute" data-energy-save-minute>15</div>
+		      <div class="energy-save-down"><i class="fa fa-caret-down"></i></div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div class="custom-message"></div>
+	    </div>
+	  </div>
+	</div>
+      </div>
+    </div>
+
+    <div class="schedule-control hidden">
+      <div save-row class="save-row">
+	<span class='message'></span>
+	<div class="save-btn">Save</div>
+      </div>
+      <div list-container class="list-container" id='list-container'>
+	<div class='day-selector-list'>
+	  <div class='day-select selected' data-day='monday'>
+	    Mon
+	  </div>
+	  <div class='day-select' data-day='tuesday'>
+	    Tue
+	  </div>
+	  <div class='day-select' data-day='wednesday'>
+	    Wed
+	  </div>
+	  <div class='day-select' data-day='thursday'>
+	    Thu
+	  </div>
+	  <div class='day-select' data-day='friday'>
+	    Fri
+	  </div>
+	  <div class='day-select' data-day='saturday'>
+	    Sat
+	  </div>
+	  <div class='day-select' data-day='sunday'>
+	    Sun
+	  </div>
+	</div>
+	<div class='list'>
+	  <div data-selector='monday' class='day-list'>
+	  </div>
+	  <div data-selector='tuesday' class='day-list hidden'>
+	  </div>
+	  <div data-selector='wednesday' class='day-list hidden'>
+	  </div>
+	  <div data-selector='thursday' class='day-list hidden'>
+	  </div>
+	  <div data-selector='friday' class='day-list hidden'>
+	  </div>
+	  <div data-selector='saturday' class='day-list hidden'>
+	  </div>
+	  <div data-selector='sunday' class='day-list hidden'>
+	  </div>
+	</div>
+      </div>
+    </div>
+
+    <div class="history hidden">
+      <canvas id="historyChart" width="400" height="400"></canvas>
+    </div>
+  </div>
+
+  <div id="schedule-row-template" class="hidden">
+    <div class='row-id' id='1'>
+      <div class='r'>
+	<div class='c7'>
+	  <div class='label'>Time</div>
+	  <div class='time-row'>
+	    <div class='r'>
+	      <div class='c10'>
+		<div class='start-time-container'>
+		  <span class='start-hour'></span>
+		  :
+		  <span class='start-minute'></span>
+		</div>
+	      </div>
+	      <div class='c2'>
+		<div class="btn time-change time-up"><i class="fa fa-angle-up"></i></div>
+		<div class="btn time-change time-down"><i class="fa fa-angle-down"></i></div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class='c5'>
+	  <div class='label'>Temperature</div>
+	  <div class='temperature-row'>
+	    <div class='r'>
+	      <div class='c9'>
+		<div class='temperature'></div>
+	      </div>
+	      <div class='c3'>
+		<div class="btn temp-change sched-temp-up"><i class="fa fa-angle-up"></i></div>
+		<div class="btn temp-change sched-temp-down"><i class="fa fa-angle-down"></i></div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+      </div>
+      <div class='actions'>
+	<div class='r'>
+	  <div class='c5'>
+	    <div class='btn schedule-copy-day'><span>Copy to next day</span></div>
+	  </div>
+	  <div class='c5'>
+	    <div class='btn schedule-copy-week'><span>Copy to all</span></div>
+	  </div>
+	  <div class='c2'>
+	    <div class='btn schedule-delete'><i class='fa fa-close'></i></div>
+	  </div>
+	</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

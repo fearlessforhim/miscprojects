@@ -1,0 +1,38 @@
+html, body {
+    margin: 0;
+    height: 400px;
+    overflow: hidden;
+}
+
+body {
+    padding-top: 100px;
+    padding-left: 100px;
+}
+
+.wrapper {
+    position: fixed;
+    height: 700px;
+    width: 700px;
+}
+
+.box-1 {
+    position: absolute;
+    background-color: black;
+    height: 300px;
+    width: 300px;
+    padding: 200px
+}
+
+.grabber {
+    border-radius: 50%;
+    border: 1px black solid;
+    background: orange;
+    height: 50px;
+    width: 50px;
+    float: left;
+    //margin: -8px;
+}
+
+.message {
+    margin-top: 500px;
+}

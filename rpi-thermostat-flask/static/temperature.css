@@ -1,0 +1,426 @@
+body {
+ font-family: sans-serif;
+    margin: 0;
+}
+
+
+.page-control-placeholder.schedule {
+    height: 245px;
+}
+
+.page-controls {
+    padding: 10px 0px;
+    position: fixed;
+    width: 100%;
+    z-index: 999999;
+    background: white;
+}
+
+.data-control {
+
+}
+
+.page-controls .header-btn {
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.page-controls .header-btn > div {
+    margin: 0 auto;
+    color: #AAAAAA;
+    text-align: center;
+    font-size: 4em;
+}
+
+.page-controls .thermostat-page-btn, .schedule-page-btn {
+    border-right: 1px solid #444444;
+}
+
+.page-controls .settings-page-btn {
+    font-size: 1em;
+    text-align: center;
+    width: 100%;
+    padding-top: 11px;
+}
+
+.temperature-control {
+    position: fixed;
+    width: 100%;
+    padding: 5px;
+}
+
+.wrapper {
+    position: fixed;
+    height: 450px;
+    width: 450px;
+    padding-top: 175px;
+    padding-left: 160px;
+    z-index: 99;
+}
+
+.wrapper-back {
+    position: fixed;
+    height: 585px;
+    width: 585px;
+    margin-top: 130px;
+    margin-left: 117px;
+    border-radius: 50%;
+    border: 1px solid #E2E2E2;
+}
+
+.box-1 {
+    position: absolute;
+    background-color: black;
+    height: 500px;
+    width: 500px;
+    border-radius: 50%;
+}
+
+.grabber {
+    border-radius: 50%;
+    border: 2px #AAA solid;
+    background: white;
+    height: 115px;
+    width: 115px;
+    float: left;
+    margin: 3px 0 0 3px;
+}
+
+.wrapper-front {
+    z-index: 100;
+    position:absolute;
+    height: 360px;
+    width: 360px;
+    top: 254px;
+    left: 213px;
+}
+
+.temperature-control, .schedule-control{
+    margin-top: 0px;
+}
+
+.temperature-control .temperature-display-wrapper {
+    //border-right: 1px solid #999;
+}
+
+.temperature-control .temperature-display-wrapper .target{
+    width: 32%;
+    margin: auto;
+}
+
+.temperature-control .temperature-display-wrapper .target span{
+    font-size: 5em;
+    color: white;
+}
+
+
+.temperature-control .temperature-display-wrapper .current{
+}
+
+.temperature-control .temperature-display-wrapper .current span{
+    font-size: 15em;
+    color: white;
+}
+
+.temperature-control .temperature-display-wrapper .temporary-notice {
+    display: none;
+    position: fixed;
+    top: 112px;
+    background: #09B57A;
+    border-radius: 3px;
+    padding: 6px 10px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 0 3px 0 0;
+    font-size: 35px;
+}
+
+.temperature-control .temperature-display-wrapper.temporary .temporary-notice {
+    display: block;
+}
+
+
+.temperature-control .temperature-display-wrapper .running-notice {
+    display: none;
+    position: fixed;
+    background: #09B57A;
+    top: 175px;
+    border-radius: 3px;
+    padding: 6px 10px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 0 5px 0 0;
+    font-size: 35px;
+}
+
+.temperature-control .temperature-display-wrapper .hold-notice {
+    display: none;
+    position: fixed;
+    background: #09B57A;
+    top: 238px;
+    border-radius: 3px;
+    padding: 6px 10px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 0 5px 0 0;
+    font-size: 35px;
+}
+
+.temperature-control .temperature-display-wrapper.holding .hold-notice {
+    display: block;
+}
+
+.temperature-control .temperature-display-wrapper.running .running-notice {
+    display: block;
+}
+
+.temperature-control .forecast-display {
+    margin-top: 120px;
+}
+
+.temperature-control .forecast-display .forecast-header {
+    font-size: 3em;
+    border-bottom: 1px solid #CBCBCB;
+}
+
+.temperature-control .forecast-display .forecast-header .time {
+    float: right;
+    margin-right: 30px;
+}
+
+.temperature-control .forecast-display .forecast-temp {
+    padding: 10px;
+}
+
+.temperature-control .forecast-display .forecast-temp .forecast-temp-current-title, .forecast-temp-highlow-title, .forecast-temp-current-with-wind-title, .forecast-temp-conditions-title, .humidity-title {
+    font-size: 2em;
+    text-align: center;
+}
+
+.temperature-control .forecast-display .forecast-temp .forecast-temp-current-value, .forecast-temp-highlow-value, .humidity-value {
+    font-size: 4em;
+    text-align: center;
+    background: #CBCBCB;
+    border-radius: 3px;
+    margin: 0 15px 15px 15px;
+}
+
+.temperature-control .forecast-display .forecast-temp .forecast-temp-condition-value {
+    border: #CBCBCB solid 2px;
+    border-radius: 7px;
+    margin: 0px 14px;
+}
+
+.temperature-control .forecast-display .forecast-temp .forecast-temp-condition-value .condition {
+    background-size: 90px !important;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    margin-top: -18px;
+    margin-bottom: -17px;
+}
+
+.temperature-control .forecast-display .forecast-temp .forecast-temp-condition-value .condition.cloudy {
+    background: url(cloudy.png) center no-repeat;
+}
+
+.temperature-control .forecast-display .forecast-temp .forecast-temp-condition-value .condition.partly-cloudy {
+    background: url(partly-cloudy.png) center no-repeat;
+}
+
+.temperature-control .forecast-display .forecast-temp .forecast-temp-condition-value .condition.rain {
+    background: url(rain.png) center no-repeat;
+}
+
+.temperature-control .forecast-display .forecast-temp .forecast-temp-condition-value .condition.rain-light {
+    background: url(rain-light.png) center no-repeat;
+}
+.temperature-control .forecast-display .forecast-temp .forecast-temp-condition-value .condition.sunny {
+    background: url(sunny.png) center no-repeat;
+}
+
+.temperature-control .forecast-display .forecast-temp .forecast-temp-condition-value .condition.snow-s-rain {
+    background: url(snow-s-rain.png) center no-repeat;
+}
+.temperature-control .forecast-display .forecast-temp .forecast-temp-condition-value .condition.scattered-showers {
+    background: url(scattered-showers.png) center no-repeat;
+}
+.temperature-control .forecast-display .forecast-temp .forecast-temp-condition-value .condition.snow {
+    background: url(snow.png) center no-repeat;
+}
+
+.temperature-control .forecast-display .forecast-temp .forecast-temp-condition-value .condition-text {
+    padding: 21px 0px;
+    font-size: 1.5em;
+}
+
+.temperature-control .forecast-display .energy-save {
+    border-radius: 3px;
+    background: #0085A8;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    font-size: 3em;
+    cursor: pointer;
+}
+
+
+.temperature-control .forecast-display .energy-save .data-energy-save-text {
+    line-height: 113px;
+}
+
+.temperature-control .forecast-display .energy-save .data-energy-save-select {
+    margin: -20px;
+    background: #CBCBCC;
+    padding-bottom: 2px;
+}
+
+.temperature-control .forecast-display .energy-save .data-energy-save-select .energy-save-up {
+    background: #ABABAB;
+}
+
+.temperature-control .forecast-display .energy-save .data-energy-save-select .energy-save-down {
+    background: #ABABAB;
+}
+
+.temperature-control .forecast-display .custom-message {
+    border-radius: 3px;
+    background: #CBCBCB;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    font-size: 3em;
+}
+
+.control-center {
+    font-size: 30px;
+    padding: 0 8px 8px;
+    margin-top: 750px;
+}
+
+.control-center > div {
+}
+
+.control-center .control {
+    text-align: center;
+    margin: auto;
+    font-size: 1.5em;
+    background: #0085A8;
+    padding: 4px;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.control-center .heat-control {
+    margin-bottom: 8px;
+}
+
+.control-center .control span{
+    margin: 0 0 0 5px;
+}
+.control-center .off {
+}
+
+
+.control-center .control.on .off {
+    display: none;
+}
+
+.control-center .heat-control .control.off {
+    background: #fb8b00;
+}
+
+.control-center .control.on .on {
+    display: initial;
+}
+
+
+.control-center .control.off .on {
+    display: none;
+}
+
+.control-center .control.off .off {
+    display: initial;
+}
+
+.temperature-control .temperature-action-display .btn{
+    text-align: center;
+    font-size: 215px;
+    margin: 5px 8px;
+}
+
+.temperature-control .temperature-action-display .temp-up{
+	background: #CC7E0B;
+}
+
+.temperature-control .temperature-action-display .temp-down{
+	background: #00A9B1;
+}
+
+.temperature-control .temperature-action-display .run-schedule{
+    background: #777;
+    font-size: 41px;
+    padding: 48px 0;
+}
+
+body.dark-theme {
+    background: black;
+}
+
+body.dark-theme .temperature-control {
+    background: black;
+}
+
+body.dark-theme .page-controls {
+    background: black;
+}
+
+body.dark-theme .data-control .temperature-display .forecast-display .forecast-header {
+    color: white;
+}
+
+body.dark-theme .data-control .temperature-display .forecast-display .forecast-temp .forecast-temp-current-title {
+    color: white;
+}
+
+body.dark-theme .data-control .temperature-display .forecast-display .forecast-temp .forecast-temp-highlow-title{
+    color: white;
+}
+
+body.dark-theme .data-control .temperature-display .forecast-display .forecast-temp .forecast-temp-current-with-wind-title{
+    color: white;
+}
+
+body.dark-theme .data-control .temperature-display .forecast-display .forecast-temp .forecast-temp-conditions-title{
+    color: white;
+}
+
+body.dark-theme .data-control .temperature-display .forecast-display .forecast-temp .forecast-temp-\
+condition-value .condition-text {
+    color: white;
+}
+
+body.dark-theme .data-control .temperature-display .forecast-display .forecast-temp .humidity-title {
+    color: white;
+}
+
+body.dark-theme .data-control .temperature-display .forecast-display .forecast-temp .forecast-temp-condition-value {
+    color: white;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 650px) {
+
+  .forecast-display{
+    margin-top: 20px !important;
+  }
+
+  .mc12 {
+    float: left;
+    padding: 0;
+    position: relative;
+    min-height: 1px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100% !important;
+  }
+}

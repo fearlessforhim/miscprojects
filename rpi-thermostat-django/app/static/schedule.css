@@ -1,0 +1,134 @@
+.schedule-control {
+    //	width: 1024px;
+    font-size: 16px;
+}
+
+.schedule-control .save-row {
+    position: fixed;
+    width: 100%;
+    background: #DDD;
+    border-bottom: 2px solid #808080;
+    margin-top: 104px;
+}
+
+.schedule-control .save-row .message {
+    font-size: 4em;
+    margin: 0.8em 0 0 .6em;
+    float: left;
+}
+
+.schedule-control .save-row .save-btn{
+    float: right;
+    padding: 11px 20px;
+    font-size: 80px;
+    background:  #0085A8;
+    border-radius: 5px;
+    color: white;
+    border: 2px solid #0C9CE8;
+    margin: 20px 40px;
+}
+
+.schedule-control .day-selector-list {
+    width: 100%;
+}
+
+.schedule-control .day-selector-list .day-select{
+    width: 14.28%;
+    float: left;
+    font-size: 3em;
+    padding: 47px 0;
+    background: #0ABFB4;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.schedule-control .day-selector-list .day-select.selected{
+    background: #0085A8;
+}
+
+.schedule-control .list-container {
+    padding-top: 264px;
+}
+
+.schedule-control .day {
+    font-family: sans-serif;
+    font-size: 80px;
+    background: gray;
+    padding: 9px 8px;
+}
+
+.schedule-control .row-id {
+    border-bottom: 1px solid #808080;
+    font-size: 14px;
+    padding: 12px;
+}
+
+.schedule-control .row-id .time-row, .schedule-control .row-id .temperature-row {
+    border: 2px solid gray;
+    border-radius: 4px;
+    background: #efefef;
+    padding-right: 25px;
+    padding-top: 20px;
+}
+
+.schedule-control .row-id .time-row {
+    margin: 0px 10px 7px 0;
+}
+
+.schedule-control .start-time-container, .schedule-control .temperature {
+    font-size: 8em;
+    font-family: sans-serif;
+    text-align: center;
+    padding: 20px 0px 35px;
+}
+
+.schedule-control .row-id .actions {
+    display: flex;
+}
+
+.schedule-control .row-id .actions .btn {
+    margin: 4px 0px;
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.schedule-control .row-id .label {
+    font-size: 3em;
+    margin: 23px 0 0 7px;
+}
+
+.schedule-control .row-id .actions {
+    font-size: 14px;
+    display: none;
+}
+
+.schedule-control .row-id .actions .btn {
+    font-size: 4em;
+    margin: 4px;
+}
+
+
+.schedule-control .row-id .actions .btn.schedule-copy-day, .schedule-control .row-id .actions .btn.schedule-copy-week {
+    background: #00A9B1;
+    padding: 37px 0px;
+}
+
+.schedule-control .row-id .actions .btn.schedule-copy-week {
+    padding: 37px 0;
+}
+
+.schedule-control .row-id .actions .btn.schedule-delete {
+    background: #01787d;
+    padding: 42px 0px;
+}
+
+.schedule-control .row-id .temp-change, .schedule-control .row-id .time-change {
+    color: gray;
+    font-size: 8em;
+    margin-top: -27px;
+    margin-left: -21px;
+}
