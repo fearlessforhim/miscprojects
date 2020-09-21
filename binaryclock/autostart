@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#include the following commented code at the end of your .bashrc
+#	 /home/{home_dir}/autostart
+
+python binary_clock.py
